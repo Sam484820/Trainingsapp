@@ -69,8 +69,8 @@ function showJumpExercises() {
         for (var i = 0; i < jumpdiv.length; i++) {
             jumpdiv[i].style.display = 'flex';
         }
-        btn1.style.backgroundColor = '#ffab38'; // Active state for the button
-        btn1.style.transition = '.5s ease';
+        btn1.style.backgroundColor = 'var(--clr-yellow)'; // Active state for the button
+        btn1.style.transition = '.3s ease';
 
         hidePowerExercises();  // Hide power exercises
         isJumpDisplayed = true;  // Mark jump as displayed
@@ -87,8 +87,8 @@ function showPowerExercises() {
         for (var i = 0; i < powerdiv.length; i++) {
             powerdiv[i].style.display = 'flex';
         }
-        btn2.style.backgroundColor = '#ffab38'; // Active state for the button
-        btn2.style.transition = '.5s ease';
+        btn2.style.backgroundColor = 'var(--clr-yellow)'; // Active state for the button
+        btn2.style.transition = '.3s ease';
 
         hideJumpExercises();  // Hide jump exercises
         isPowerDisplayed = true;  // Mark power as displayed
@@ -99,7 +99,7 @@ function hidePowerExercises() {
     for (var i = 0; i < powerdiv.length; i++) {
         powerdiv[i].style.display = 'none';
     }
-    btn2.style.backgroundColor = 'rgb(58, 58, 58)';  // Reset button color
+    btn2.style.backgroundColor = 'var(--clr-buttons)';  // Reset button color
     isPowerDisplayed = false;  // Mark power as hidden
 }
 
@@ -107,7 +107,7 @@ function hideJumpExercises() {
     for (var i = 0; i < jumpdiv.length; i++) {
         jumpdiv[i].style.display = 'none';
     }
-    btn1.style.backgroundColor = 'rgb(58, 58, 58)';  // Reset button color
+    btn1.style.backgroundColor = 'var(--clr-buttons)';  // Reset button color
     isJumpDisplayed = false;  // Mark jump as hidden
 }
 
@@ -121,8 +121,8 @@ function showAllExercises() {
     }
 
     // Reset both button colors to inactive state
-    btn1.style.backgroundColor = 'rgb(58, 58, 58)';
-    btn2.style.backgroundColor = 'rgb(58, 58, 58)';
+    btn1.style.backgroundColor = 'var(--clr-buttons)';
+    btn2.style.backgroundColor = 'var(--clr-buttons)';
 
     // Reset both states
     isJumpDisplayed = false;
@@ -136,6 +136,8 @@ function showAllExercises() {
 
 
 function showSidebar() {
+    const body = document.body;
+    body.classList.toggle('no-scroll');
     var BG = document.querySelector('.menu-bar-darkBG');
     BG.classList.toggle('displayActive');
     var MenuIcon = document.querySelector('.yallah');
@@ -155,25 +157,28 @@ function hideSidebar() {
 
 
 
-var WIDTH_LIMIT = 700;
 function showPopUp() {
-    var body = document.querySelector('body');
-    var windowWidth = window.innerWidth;
-    if (windowWidth <= WIDTH_LIMIT) {
-        body.style.overflowY = 'hidden';
-    } else {
-        body.style.overflowY = 'visible';
-    }
-    var popUp = document.querySelector('.popup');
-    var popUpBG = document.querySelector('.popupBG');
+    const body = document.body;
+    const popUp = document.querySelector('.popup');
+    const popUpBG = document.querySelector('.popupBG');
+
+    // Scroll verhindern (auf allen Geräten)
+    body.classList.add('no-scroll');
+
+    // Popup anzeigen
     popUp.style.bottom = '0%';
     popUpBG.style.display = 'block';
 }
+
 function RemovePopUp() {
-    var bodyadi = document.querySelector('body');
-    bodyadi.style.overflowY = ('scroll');
-    var popUp = document.querySelector('.popup');
-    var popUpBG = document.querySelector('.popupBG');
+    const body = document.body;
+    const popUp = document.querySelector('.popup');
+    const popUpBG = document.querySelector('.popupBG');
+
+    // Scroll wieder erlauben
+    body.classList.remove('no-scroll');
+
+    // Popup ausblenden
     popUp.style.bottom = '-110%';
-    popUpBG.style.display = 'None'
+    popUpBG.style.display = 'none';
 }

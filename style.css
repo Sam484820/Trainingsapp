@@ -2,14 +2,17 @@
 
 
 :root {
-    --clr-background: rgb(92, 149, 130);
+    --clr-background: linear-gradient(250deg, rgba(160, 160, 160, 0.308), rgba(99, 99, 163, 0.281));
     --clr-text: rgb(240, 232, 232);
-    --svg-fillColor: rgb(99, 125, 195);
+    --clr-bigText:#e2d563;
+    --svg-fillColor: rgb(27, 27, 29);
     --clr-red: rgb(119, 38, 38);
-    --clr-grey: rgb(58, 58, 58);
+    --clr-buttons: #3d5a9d;
     --clr-yellow: #ffab38;
     --clr-red1: rgb(228, 197, 58);
+    --clr-BG: rgb(185, 185, 185);
     --clr-items: linear-gradient(250deg, rgba(160, 160, 160, 0.308), rgba(99, 99, 163, 0.281));
+    --clr-SVG: red;
 }
 
 html,
@@ -33,7 +36,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-color: #2d5a68;
+    /* background-color: var(--clr-background); */
 
 
 
@@ -46,12 +49,11 @@ body {
     Top: 0%;
     height: 4.5em;
     width: 100%;
-    /* border-bottom: 2px solid rgb(105, 125, 233); */
-    background-color: rgb(27, 27, 28, 0.95);
+    background-color: rgb(27, 27, 28, 0.71);
     backdrop-filter: blur(10px);
     z-index: 213;
-    border-bottom: 2px solid;
-    border-image-source: linear-gradient(90deg, transparent 10%, var(--svg-fillColor), transparent 90%);
+    /* border-bottom: 2px solid; */
+    /* border-image-source: linear-gradient(90deg, transparent 10%, var(--svg-fillColor), transparent 90%); */
     border-image-slice: 1;
 }
 
@@ -68,7 +70,7 @@ body {
 }
 
 svg {
-    fill: rgb(99, 125, 195);
+    fill: var(--clr-yellow);
 }
 
 .absolutePos-Top-left {
@@ -89,7 +91,7 @@ svg {
     height: 80px;
     width: 100%;
     font-size: 3em;
-    color: var(--clr-text);
+    color: var(--clr-bigText);
     font-family: Arial;
     font-weight: bolder;
     margin-top: 2em;
@@ -99,35 +101,36 @@ svg {
 
 .catego {
     display: flex;
-    height: 45px;
+    height: 5em;
+    /* background-color: aquamarine; */
     width: 100%;
     margin-top: .5em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     justify-content: end;
-    align-items: center;
+    align-items:end
 }
 
 
 .categoChild {
     cursor: pointer;
-    margin-right: .1em;
+    margin-right: .2em;
     align-content: center;
     text-align: center;
     height: 70%;
     width: 5em;
-    font-family: Arial;
-    font-size: 20px;
-    background-color: var(--clr-grey);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-size: 35px; */
+    background-color: var(--clr-buttons);
     aspect-ratio: 1;
-    border-radius: 2vw;
+    border-radius: 2.5vw;
     color: var(--clr-text);
     padding: .5%;
     transition: 0.2s;
 }
 
-.categoChild:active {
-    border: 1px solid white;
-}
+/* .categoChild:active {
+    background-color: #f5b760;
+} */
 
 .dropDown-changeView {
     width: 5em;
@@ -555,15 +558,6 @@ main {
     animation: popupOpacityStart 2.5s;
 }
 
-.popup-pics-explanaition-Step1 {
-    position: absolute;
-    width: 100%;
-    z-index: 301;
-    background-clip: content-box;
-    border-radius: 1em;
-
-}
-
 .child4 {
     /* background-color: rgb(26, 49, 20); */
     width: 37%;
@@ -589,7 +583,7 @@ main {
 
 .menu-bar {
     padding-top: 1em;
-    width: 20em;
+    width: 100%;
     height: 100%;
     display: none;
     position: relative;
@@ -656,7 +650,7 @@ a {
 
 #MENU {
     background-color: rgba(240, 248, 255, 0);
-    color: var(--clr-red);
+    color: var(--clr-yellow);
     font-size: 4em;
     width: 100%;
     height: auto;
@@ -665,7 +659,12 @@ a {
 }
 
 .turnNinetyDeg {
-    transform: scale(1.2);
+    transform: rotate(180deg);
+}
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  touch-action: none;
 }
 
 /* CONTENT MID END */
@@ -755,9 +754,6 @@ a {
         height: 50%;
     }
 
-    /* .popup h1{
-        font-size: 3.5em;
-    } */
     .child1 {
         height: 35rem;
     }
@@ -836,7 +832,9 @@ a {
     }
 }
 
-@media only screen and (width < 700px) {
+
+
+@media only screen and (width < 871px) {
 
     main {
         margin-bottom: 20%;
@@ -876,10 +874,10 @@ a {
     }
 
     .closePopUp {
-        width: 100%;
+        width:  100%;
         margin-left: 0%;
         margin-top: 0%;
-        /* backdrop-filter: blur(10px); */
+        backdrop-filter: blur(10px);
         position: fixed;
         z-index: 990;
     }
@@ -896,9 +894,9 @@ a {
     .popup h1 {
         margin-top: 1.3em;
         font-size: 3em;
-        background: radial-gradient(var(--clr-yellow), var(--clr-background));
+        /* background: radial-gradient(var(--clr-yellow), var(--clr-background));
         background-clip: text;
-        color: transparent;
+        color: transparent; */
         position: relative;
         text-shadow: 0px 0px 30px var(--clr-yellow);
         animation: bottom_fly 3s infinite;
@@ -929,12 +927,12 @@ a {
         height: auto;
         flex-direction: column;
         gap: 0%;
-        padding-top: 0%;
         padding-bottom: 0%;
         display: flex;
         align-items: center;
         padding-top: 0%;
         margin: 0%;
+        /* background-color: #2d5a68; */
     }
 
     .child1-child {
@@ -947,7 +945,7 @@ a {
         text-align: center;
         padding-left: 2em;
         padding-right: 2em;
-        padding-top: .5em;
+        /* padding-top: .5em; */
         padding-bottom: .5em;
         animation: none;
         font-size: 1.5em;
@@ -976,10 +974,10 @@ a {
         flex-direction: column;
         gap: 0%;
         padding: 0%;
-        display: flex;
+        display: none;
         align-items: flex-start;
         margin: 0%;
-        /* background-color: red; */
+        background-color: red;
     }
 
     .popup-pics {
@@ -991,18 +989,17 @@ a {
     }
 
     .child3 {
-        /* margin-top: 2em; */
-        /* background-color: red; */
         width: 100%;
         height: 30%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 0rem;
+        padding-top: 0%;
         order: -1;
         padding-top: 0%;
         padding-bottom: 0%;
+        overflow: hidden; 
         /* background-color: blue; */
 
     }
@@ -1010,6 +1007,13 @@ a {
     .popup-pics-explanaition {
         animation: none;
         transform: scale(.9);
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        /* height: 100%;
+        width: 100%; */
     }
 
     .child4 {
@@ -1049,7 +1053,7 @@ a {
         bottom: 0%;
         background-color: rgba(29, 28, 34, 0.716);
         display: flex;
-        /* padding-bottom: 5%; */
+        padding-bottom: 1em;
         position: fixed;
         justify-content: center;
         backdrop-filter: blur(10px);
@@ -1071,11 +1075,14 @@ a {
 
     .catego {
         margin-top: 0em;
+        /* background-color: aquamarine; */
+
     }
 
     .categoChild {
-        font-size: 1em;
-        height: 70%;
+        font-size: 1.2em;
+        height: 50%;
+        border-radius: 8vw;
     }
 
     .exercise-name {
@@ -1126,7 +1133,7 @@ a {
         position: absolute;
         inset: 0;
         background: linear-gradient(90deg, black, rgba(0, 0, 0, 0.214));
-        opacity: 50%;
+        opacity: 70%;
         transition: .2s ease-in-out;
     }
 
