@@ -31,7 +31,7 @@ body {
 }
 
 body {
-    background: linear-gradient(180deg, rgb(85, 119, 172), rgb(0, 0, 0));
+    background-color: #253354;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
